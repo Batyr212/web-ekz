@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница 2 - Антистресс Кнопки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="tabs">
+        <a href="./index.html" class="tab">Вход</a>
+        <a href="./pages1.html" class="tab">Страница 1</a>
+        <a href="./pages2.html" class="tab active">Страница 2</a>
+    </div>
+
+    <div id="page2" class="content active">
+        <h2>Антистресс Кнопки</h2>
+        <p>Нажимайте на кнопки, чтобы расслабиться:</p>
+
+        <div class="button-container">
+            <button class="stress-button">Тык!</button>
+            <button class="stress-button">Нажми!</button>
+            <button class="stress-button">Щелк!</button>
+            <button class="stress-button">Пинг!</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.stress-button').forEach(button => {
+            button.addEventListener('click', function() {
+                button.classList.add('clicked');
+                setTimeout(() => button.classList.remove('clicked'), 200);
+            });
+        });
+    </script>
+
+</body>
+</html>

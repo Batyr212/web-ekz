@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница 1 - Выбор фона</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="tabs">
+        <a href="./index.html" class="tab">Вход</a>
+        <a href="./pages1.html" class="tab active">Страница 1</a>
+        <a href="./pages2.html" class="tab">Страница 2</a>
+    </div>
+
+    <div id="page1" class="content active">
+        <h2>Страница 1</h2>
+        <p>Выберите фон для страницы:</p>
+
+        <label for="bg-select">Выберите фон:</label>
+        <select id="bg-select">
+            <option value="">--Выберите фон--</option>
+            <option value="url('https://wallpapercave.com/wp/wp2757874.jpg')">Закат</option>
+            <option value="url('https://www.w3schools.com/w3images/mountains.jpg')">Горы</option>
+            <option value="url('https://www.w3schools.com/w3images/forest.jpg')">Лес</option>
+            <option value="url('https://www.w3schools.com/w3images/lights.jpg')">Огни города</option>
+            <option value="color: #3498db">Синий</option>
+            <option value="color: #2ecc71">Зеленый</option>
+        </select>
+
+        <button id="change-bg-btn">Изменить фон</button>
+    </div>
+
+    <script>
+        document.getElementById('change-bg-btn').addEventListener('click', function() {
+            var selectedValue = document.getElementById('bg-select').value;
+            if (selectedValue.startsWith('url')) {
+                document.body.style.backgroundImage = selectedValue;
+                document.body.style.backgroundColor = '';
+            } else if (selectedValue.startsWith('color')) {
+                document.body.style.backgroundColor = selectedValue.split(': ')[1];
+                document.body.style.backgroundImage = '';
+            } else {
+                document.body.style.backgroundImage = '';
+                document.body.style.backgroundColor = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
